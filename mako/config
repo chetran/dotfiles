@@ -1,0 +1,40 @@
+# --- Appearance ---
+font=JetBrainsMono Nerd Font 12
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-size=2
+border-color=#89b4fa
+border-radius=12
+default-timeout=5000
+max-visible=5
+margin=10,20,10,20
+padding=8,12
+icons=1
+max-icon-size=48
+
+# --- Placement ---
+layer=overlay
+anchor=top-right
+
+# --- Urgency rules ---
+[urgency=low]
+background-color=#313244
+text-color=#a6e3a1
+border-color=#a6e3a1
+default-timeout=2000
+
+[urgency=normal]
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+default-timeout=5000
+
+[urgency=high]
+background-color=#f38ba8
+text-color=#1e1e2e
+border-color=#f38ba8
+default-timeout=0   
+
+# --- Blocks Notifications ---
+[app-name=Spotify]
+invisible=1
