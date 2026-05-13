@@ -1,44 +1,59 @@
 return {
-  {
-    "mason-org/mason.nvim",
-    opts = {},
-    config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = { "lua_ls", "gopls", "ts_ls", "html", "cssls", "clangd"},
-    },
-    dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
-      "neovim/nvim-lspconfig",
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.cssls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-      })
-    end,
-  },
+	{
+		"mason-org/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			"mason-org/mason.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "pyright", "ts_ls", "sqls", "clangd" },
+			})
+
+			vim.lsp.config("lua_ls", {
+				capabilities = capabilities,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							checkThirdParty = false,
+						},
+					},
+				},
+			})
+
+			vim.lsp.config("pyright", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("ts_ls", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("sqls", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("clangd", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("sqls")
+			vim.lsp.enable("clangd")
+
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+		end,
+	},
 }
