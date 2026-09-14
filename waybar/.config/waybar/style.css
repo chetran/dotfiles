@@ -1,0 +1,94 @@
+* {
+    font-family: monospace;
+    font-size: 16px;
+    border: none;
+    border-radius: 0;
+}
+
+tooltip, tooltip label {
+    font-size: 16px;
+}
+
+window#waybar {
+    background: #2B303B;
+    color: #ECEFF4;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #D8DEE9;
+    background: transparent;
+}
+
+#workspaces button.active {
+    background: #4C566A;
+    color: #ECEFF4;
+}
+
+#custom-mic,
+#pulseaudio,
+#custom-notifications {
+    padding: 0 7px;
+    margin: 3px 2px;
+    border-radius: 5px;
+}
+
+#custom-mic.active {
+    color: #A3BE8C;
+    background: transparent;
+}
+
+#custom-mic.muted {
+    color: #ECEFF4;
+    background: #BF616A;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    color: #ECEFF4;
+    background: transparent;
+}
+
+#pulseaudio.muted {
+    color: #D08770;
+    background: transparent;
+    font-weight: bold;
+}
+
+#custom-notifications {
+    color: #88C0D0;
+    background: transparent;
+}
+
+#custom-notifications.notification,
+#custom-notifications.inhibited-notification {
+    color: #88C0D0;
+}
+
+#custom-notifications.none,
+#custom-notifications.inhibited-none {
+    color: #D8DEE9;
+}
+
+#custom-notifications.dnd-notification,
+#custom-notifications.dnd-none,
+#custom-notifications.dnd-inhibited-notification,
+#custom-notifications.dnd-inhibited-none {
+    color: #B48EAD;
+    background: #3B4252;
+}
+
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#tray {
+    padding: 0 4px;
+}
+
+#tray > .passive,
+#tray > .active,
+#tray > .needs-attention {
+    padding: 0 2px;
+}
