@@ -502,10 +502,3 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
-
-hl.window_rule({
-    match = {
-        class = "^org%.mozilla%.Thunderbird$",
-    },
-    workspace = "5 silent",
-})
