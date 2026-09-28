@@ -16,7 +16,7 @@ sudo pacman -S stow
 
 Install font:
 ```bash
-sudo pacman -S ttf-jetbrains-mono-nerd noto-fonts-cjk
+sudo pacman -S ttf-jetbrains-mono-nerd noto-fonts-cjk noto-fonts-emoji
 ```
 
 Set wallpaper in ~/.config/backgrounds , and call it wallpaper.png or change name in hyprpaper.conf
